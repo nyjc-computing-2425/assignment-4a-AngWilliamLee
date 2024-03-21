@@ -2,7 +2,7 @@ nric = input('Enter the NRIC number: ').upper()
 
 prefix = nric[0].upper()
 digits = nric[1:8]
-digit_list = [int(digit) for digit in digits]
+
 suffix = nric[8:].upper()
 prefix_str = "STFG"
 suffix_str_1 = "JZIHGFEDCBA"
@@ -35,17 +35,22 @@ elif (suffix not in suffix_str_1) and (suffix not in suffix_str_2):
 
 else:
     for x in range (0, 6):
-       total = digit_list[x] * digit_weights[x]
+      digit_list = [int(digit) for digit in digits]
+      total = digit_list[x] * digit_weights[x]
+
 
 
     if prefix in "TG":
         total = total + 4
+     
 
     remainder = total % 11
+  
 
     check_alpha = ''
     if prefix in "ST":
         check_alpha = suffix_str_1[remainder]
+
     elif prefix in "FG":
         check_alpha = suffix_str_2[remainder]
 
